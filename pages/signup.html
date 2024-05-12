@@ -4,12 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sign Up</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="../css/style.css" />
 	</head>
 	<body>
+		<!--  -->
 		<div class="container">
 			<h2>Sign Up</h2>
-			<form action="your_signup_backend_script.php" method="post">
+			<form id="SignUpForm" method="POST">
 				<label for="username">Username</label>
 				<input type="text" id="username" name="username" required />
 
@@ -19,8 +20,13 @@
 				<label for="password">Password</label>
 				<input type="password" id="password" name="password" required />
 
-				<input type="submit" value="Sign Up" />
+				<button id="signUpSubmit" type="button">Sign Up</button>
 			</form>
 		</div>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+		<script src="../js/script.js"></script>
 	</body>
 </html>
