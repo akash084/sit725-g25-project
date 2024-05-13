@@ -71,6 +71,7 @@ input[type="password"] {
 	border: none;
 	border-radius: 5px;
 }
-#signUpSubmit :hover {
+#signUpSubmit:hover {
 	background-color: #45a049;
+	cursor: pointer;
 }
