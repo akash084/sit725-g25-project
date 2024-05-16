@@ -1,0 +1,3 @@
+vzrbwXMePKZ2N6vE
+akashbaniya084
+mongodb+srv://akashbaniya084:<password>@cluster0.tfogrds.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
