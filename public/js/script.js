@@ -1,49 +1,12 @@
-// const { json } = require("body-parser");
-
-function signUpForm() {
-	let formData = {};
-	formData.username = $("#username").val();
-	formData.email = $("#email").val();
-	formData.password = $("#password").val();
-
-	console.log("Form Data Submitted: ", formData);
-	// postForm(formData);
-}
-function loginForm() {
-	let formData = {};
-	formData.username = $("#username").val();
-	formData.password = $("#password").val();
-
-	console.log("Form Data Submitted: ", formData);
-	postForm(formData);
+function getShops() {
+	//Invoking Get request and using the response(shops data including name and id) obtained to display it on dashboard page
+	$.get("/home/data", (response) => {
+		//Storing the obtained data from get request
+		responseList = response.data;
+});
 }
 
-function getForm(formData) {
-	$.get("api/post", formData, function (data, status) {
-		console.log(data.data);
-		if (data) {
-			// alert(JSON.stringify(data.data));
-		}
-	});
-}
-
-function postForm(formData) {
-	$.post("api/post", formData, function (data, status) {
-		alert("Data " + JSON.stringify(data.data) + "\nStatus " + status);
-		getForm(formData);
-	});
-}
-
+//When the app is started in the browser the below js function runs
 $(document).ready(function () {
-	// $(".materialboxed").materialbox();
-	// getCards();
-	// $(".modal").modal();
-	// $("loginForm").reset();
-	$("#loginSubmit").click(() => {
-		// loginForm();
-		// $("loginForm").reset();
-	});
-	// $("#signUpSubmit").click(() => {
-	// 	signUpForm();
-	// });
+getShops();
 });

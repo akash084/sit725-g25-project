@@ -109,6 +109,15 @@ const Login = async (req, res) => {
 // 	res.json({ statusCode: 201, message: "success", data: form });
 // };
 
+// Function to get the shops from the database and if received send the data as response
+const GetData = async (req, res) => {
+	try {
+		const shop = await MongoDBData.collection2.find();
+		res.json({ statusCode: 201, message: "success", data: shop });
+	} catch (error) {
+		res.status(200).json({ message: error.message });
+	}
+};
 module.exports = {
 	MongoDBData,
 	SignUp,
