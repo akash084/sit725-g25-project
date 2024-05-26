@@ -1,12 +1,6 @@
+// Importing express server
 let express = require("express");
-const bodyParser = require("body-parser");
-const pasth = require("path");
-const bcrypt = require("bcrypt");
-
 const app = express();
-
-// Use this to prevent TypeError: Cannot read properties of undefined (reading '_id')
-// app.use(bodyParser.urlencoded({ extended: false }));
 
 //convert data into json format
 app.use(express.json());
@@ -21,13 +15,19 @@ app.use("/", projectsRoute);
 //Start the server
 let port = process.env.port || 3000;
 
-// app.use(express.static(__dirname + "/"));
+//using public folder for ststic files
 app.use(express.static("public"));
+
+// The middleware converts JSON string to JavaScript object.
 app.use(express.json());
+
+//converts encoded urls to JavaScript object
 app.use(express.urlencoded({ extended: false }));
 
+//Using ejs(templating language that allows combining HTML code with JavaScript) for views
 app.set("view engine", "ejs");
 
+//When recieved get requests on given path renders the respective page
 app.get("/", (req, res) => {
 	res.render("login");
 });
@@ -41,53 +41,7 @@ app.get("/shop", (req, res) => {
 	res.render("shop");
 });
 
-// app.post("/signup", async (req, res) => {
-// 	const data = {
-// 		name: req.body.username,
-// 		email: req.body.email,
-// 		password: req.body.password,
-// 	};
-
-// 	// check if the user already exists in the database
-// 	const existingUser = await collection.findOne({ name: data.name });
-// 	if (existingUser) {
-// 		// alert("Username already exists.");
-// 		res.send("User already exists. Please choose a different username.");
-// 	} else {
-// 		// hash the password using bcrypt
-// 		const saltRounds = 10;
-// 		const hashedPassword = await bcrypt.hash(data.password, saltRounds);
-
-// 		// Replace the hash password with original password
-// 		data.password = hashedPassword;
-// 		const userdata = await collection.insertMany(data);
-// 		console.log(userdata);
-// 		res.render("login");
-// 	}
-// });
-
-// app.post("/login", async (req, res) => {
-// 	try {
-// 		const check = await collection.findOne({ name: req.body.username });
-// 		if (!check) {
-// 			res.send("user name cannot be found.");
-// 		}
-
-// 		//compare the hash password from the database with the plain text
-// 		const isPasswordMatch = await bcrypt.compare(
-// 			req.body.password,
-// 			check.password
-// 		);
-// 		if (isPasswordMatch) {
-// 			res.render("home");
-// 		} else {
-// 			req.send("wrong password");
-// 		}
-// 	} catch {
-// 		res.send("wrong Details");
-// 	}
-// });
-
+//Starting and checking the server on port 3000
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });

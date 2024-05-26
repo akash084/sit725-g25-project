@@ -50,13 +50,28 @@
 				</div>
 			</div>
 		</section>
-      <div class="shop-list-container">
+
+		<div class="shop-list">
+			<h1>Add shop</h1>
+			<form action="/home" id="addForm" method="POST">
+				<input
+					type="text"
+					id="shopname"
+					name="shopname"
+					class="boder-dg"
+					placeholder="Shopname"
+					required />
+				<button id="addShop" type="submit">Add</button>
+			</form>
+			<br />
+
+			<div class="shop-list-container">
 				<h1>List of shop</h1>
 
 				<div id="shopContainer"></div>
 			</div>
 		</div>
-    <script
+		<script
 			src="https://kit.fontawesome.com/48bcbf2c30.js"
 			crossorigin="anonymous"></script>
 		<script
@@ -64,5 +79,6 @@
 			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 			crossorigin="anonymous"></script>
 		<script src="js/script.js"></script>
-	</body>   
+	</body>
+	    
 </html>

@@ -25,7 +25,7 @@ a {
 	border-color: #00afb9 !important;
 }
 .border-dg:focus {
-    border-width: 3px !important;
+	border-width: 3px !important;
 	border-color: #00afb9 !important;
 }
 
@@ -59,8 +59,9 @@ button {
 	transition: background-color 0.3s;
 }
 button:hover {
-	background-color: #e55247;
+	background-color: #e55247;
 }
+
 .container {
 	text-align: center;
 	width: 50%;
