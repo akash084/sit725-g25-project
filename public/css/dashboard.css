@@ -5,15 +5,42 @@
 	border: none;
 	outline: none;
 	text-decoration: none;
+	color: #00afb9;
 }
 
 body {
 	font-family: "Poppins", sans-serif;
 }
 
-.container {
-	width: 1100px;
-	margin: auto;
+input {
+	padding: 11px 20px;
+}
+
+.shop-list {
+	background-color: #fdfcdc;
+	text-align: center;
+	align-items: center;
+}
+
+.boder-dg {
+	border: 3px solid #00afb9 !important;
+}
+
+::placeholder,
+a {
+	color: #00afb9;
+}
+
+button,
+.btn-1 {
+	/* width: 100%; */
+	padding: 14px 20px;
+	border-radius: 5px;
+	border: none;
+	background-color: #f07167;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s;
 }
 
 .user-image-size {
@@ -21,7 +48,27 @@ body {
 	margin: 4px 0;
 }
 
+.shop-list-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+li {
+	background-color: #fed9b7;
+	justify-content: space-between;
+	align-self: center;
+	padding: 0 10px;
+	margin: 5px;
+}
+li * {
+	margin: 0;
+	padding: 0;
+	padding: 10px !important;
+	margin: 5px !important;
+}
 .nav_bar {
+	background-color: #fdfcdc;
 	padding: 15px;
 	display: flex;
 	align-items: center;
@@ -37,7 +84,8 @@ body {
 .menu_list a {
 	margin: 1.2rem;
 	font-size: 14px;
-	color: rgb(82, 79, 79);
+	font-weight: bold;
+	color: #00afb9;
 }
 
 .lg_btn {
@@ -45,7 +93,7 @@ body {
 	padding: 5px 1rem;
 	border-radius: 10px;
 	color: #fff;
-	background: rgb(228, 151, 8);
+	background: #f07167;
 	cursor: pointer;
 }
 
@@ -58,7 +106,16 @@ body {
 
 .overlay {
 	height: 100%;
-	background: rgba(0, 0, 0, 0.6);
+	background: #fed9b7;
+}
+
+.updateForm {
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	align-self: center;
+	justify-self: center;
 }
 
 .home {
@@ -77,7 +134,7 @@ body {
 }
 
 .home span {
-	color: rgb(228, 151, 8);
+	color: #00afb9;
 }
 
 .home_buttons {
@@ -96,14 +153,9 @@ body {
 	margin-right: 10px;
 }
 
-.home_buttons .btn1 {
-	background: rgb(228, 151, 8);
-	color: #fff;
-}
-
 /* Services */
 .stores {
-	background: rgb(223, 223, 223);
+	background: #fdfcdc;
 	padding: 2rem 1rem;
 }
 

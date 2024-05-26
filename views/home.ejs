@@ -1,50 +1,68 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <title>Multi Store Management</title>
-      <link rel="stylesheet" href="css/dashboard.css" />
-      <link rel="stylesheet" href="" />
-    </head>
-    <body>
-      <header>
-        <div class="container-d">
-          <div class="nav_bar">
-            <div class="logo">
-              <i class="fa-solid fa-route"></i>
-              <h4><a href="#" class="left brand-logo"><img class="user-image-size" src="images/image.jpg"></img></a></h4>
-            </div>    
-              <div class="menu_list">
-                <a href="#">Home</a>
-                <a href="#">Services</a>
-                <a href="#">At</a>
-                <a href="#">stores</a>
-                <a href="#">User</a>
-    
-                <button class="lg_btn">Sign out </button>
-              </div>
-          </div>
-        </div>
-      </header>
-    
-      <section class="home_section">
-        <div class="overlay">
-          <div class="container">
-            <div class="home">
-              <h1><span>New</span> offers <br>now <span>at</span> <br><span>our</span> stores</h1>
-              <div class="home_buttons">
-                <button class="btn1"><a href="/shop">Explore Stores</a></button>
-                <button><i class="fas fa-play"></i>Offers</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Multi Store Management</title>
+		<link rel="stylesheet" href="css/dashboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container-d">
+				<div class="nav_bar">
+					<div class="logo">
+						<h4>
+							<a href="/home" class="left brand-logo"> Logo</a>
+						</h4>
+					</div>
+					<div class="menu_list">
+						<a href="/home">Home</a>
+						<a href="#">Services</a>
+						<a href="#">At</a>
+						<a href="#">stores</a>
+						<a href="#">User</a>
+
+						<button class="lg_btn">Sign out</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="home_section">
+			<div class="overlay">
+				<div class="container">
+					<div class="home">
+						<h1>
+							<span>New</span> offers <br />now <span>at</span> <br /><span
+								>our</span
+							>
+							stores
+						</h1>
+						<div class="home_buttons">
+							<button class="btn1">
+								<a style="color: white" href="/shop">Explore Stores</a>
+							</button>
+							<button><i class="fa fas fa-play"></i>Offers</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
       <div class="shop-list-container">
 				<h1>List of shop</h1>
 
 				<div id="shopContainer"></div>
 			</div>
 		</div>
-    </body>
-    </html>
+    <script
+			src="https://kit.fontawesome.com/48bcbf2c30.js"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+		<script src="js/script.js"></script>
+	</body>   
+</html>
