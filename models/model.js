@@ -1,43 +1,46 @@
-// const express = require("express");
-const { MongoClient, ServerApiVersion } = require("mongodb");
-const uri =
-	"mongodb+srv://akashbaniya084:DM5lOlHA5eEl94Bd@cluster0.4edcxj4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+//Setting up the mongodb
+//Importing mongoose
+const mongoose = require("mongoose");
 
-const client = new MongoClient(uri, {
-	serverApi: {
-		version: ServerApiVersion.v1,
-		strict: true,
-		deprecationErrors: true,
+//connecting to the database
+const connect = mongoose.connect(
+	"mongodb+srv://akashbaniya084:vzrbwXMePKZ2N6vE@cluster0.tfogrds.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+);
+
+// check the database connection
+connect
+	.then(() => {
+		console.log("Database connected succesfully");
+	})
+	.catch(() => {
+		console.log("Database can not be connected");
+	});
+
+//Creating the Schema(structure for database)
+const SignupSchema = new mongoose.Schema({
+	name: {
+		type: String,
+		required: true,
+	},
+	email: {
+		type: String,
+		required: true,
+	},
+	password: {
+		type: String,
+		required: true,
 	},
 });
 
-async function run() {
-	try {
-		await client.connect();
-		await client.db("admin").command({ ping: 1 });
-		console.log(
-			"Pinged your deployment. You successfully connected to MongoDB!"
-		);
-	} finally {
-		await client.close();
-	}
-}
+const ShopSchema = new mongoose.Schema({
+	shopname: {
+		type: String,
+		required: true,
+	},
+});
 
-async function postCard(card) {
-	await client.connect();
-	let collection = await client.db().collection("Cat");
-	return collection.insertOne(card);
-}
+//Creating the collections(users and shop) for the databases
+const collection = new mongoose.model("users", SignupSchema);
+const collection2 = new mongoose.model("shop", ShopSchema);
 
-async function getAllCards() {
-	await client.connect();
-	let collection = await client.db().collection("Cat");
-	return collection.find().toArray();
-}
-
-module.exports = {
-	run,
-	postCard,
-	getAllCards,
-	client,
-};
+module.exports = { collection, collection2 };

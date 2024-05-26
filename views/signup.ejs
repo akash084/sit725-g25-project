@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign Up</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h2>Sign Up</h2>
+			<form action="/signup" id="SignUpForm" method="POST">
+				<input
+					class="boder-dg"
+					type="text"
+					id="username"
+					name="username"
+					placeholder="Username"
+					required />
+
+				<input
+					class="boder-dg"
+					placeholder="Email"
+					type="email"
+					id="email"
+					name="email"
+					required />
+
+				<input
+					class="boder-dg"
+					type="password"
+					id="password"
+					name="password"
+					placeholder="Password"
+					required />
+
+				<button id="signUpSubmit" type="submit">Sign Up</button>
+			</form>
+			<a href="/">Go to Login</a>
+		</div>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>
