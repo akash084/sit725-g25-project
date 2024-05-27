@@ -2,4 +2,4 @@
 
 <!-- Instructions -->
 
-start the server: nodemon src/server.js
+start the server: npm run dev
