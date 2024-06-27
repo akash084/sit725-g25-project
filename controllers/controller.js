@@ -28,7 +28,7 @@ const SignUp = async (req, res) => {
 		data.password = hashedPassword;
 		const userdata = await MongoDBData.collection.insertMany(data);
 		console.log(userdata);
-		res.render("login");
+		res.redirect("login");
 	}
 };
 
@@ -48,7 +48,7 @@ const Login = async (req, res) => {
 			check.password
 		);
 		if (isPasswordMatch) {
-			res.render("home");
+			res.redirect("home");
 		} else {
 			req.send("Sorry, Wrong password.");
 		}
@@ -61,6 +61,7 @@ const Login = async (req, res) => {
 const AddShop = async (req, res) => {
 	const data = {
 		shopname: req.body.shopname,
+		image: req.body.image,
 	};
 
 	const existingShop = await MongoDBData.collection2.findOne({
@@ -71,7 +72,7 @@ const AddShop = async (req, res) => {
 	} else {
 		const shopdata = await MongoDBData.collection2.insertMany(data);
 		console.log(shopdata);
-		res.render("home");
+		res.redirect("home");
 	}
 };
 
@@ -85,6 +86,35 @@ const GetData = async (req, res) => {
 	}
 };
 
+const UpdateShop = async (req, res) => {
+	const data = {
+		shopname: req.body.shopname,
+		image: req.body.image,
+	};
+
+	let id = req.params.id;
+
+	const shop = await MongoDBData.collection2.findByIdAndUpdate(id, {
+		shopname: data.shopname,
+		image: data.image,
+	});
+	if (shop) {
+		res.redirect("../home");
+	} else {
+		res.status(200).json({ message: error.message });
+	}
+};
+
+const DeleteShop = async (req, res) => {
+	let id = req.params.id;
+	const shop = await MongoDBData.collection2.findByIdAndDelete(id);
+	if (shop) {
+		res.redirect("../home");
+	} else {
+		res.status(200).json({ message: error.message });
+	}
+};
+
 // Exporting the functons and database models
 module.exports = {
 	MongoDBData,
@@ -92,4 +122,6 @@ module.exports = {
 	Login,
 	AddShop,
 	GetData,
+	UpdateShop,
+	DeleteShop,
 };

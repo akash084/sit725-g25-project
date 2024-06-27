@@ -1,6 +1,7 @@
 // Importing express server
 let express = require("express");
 const app = express();
+const MongoDBData = require("../models/model");
 
 //convert data into json format
 app.use(express.json());
@@ -34,13 +35,38 @@ app.get("/", (req, res) => {
 app.get("/signup", (req, res) => {
 	res.render("signup");
 });
-app.get("/home", (req, res) => {
-	res.render("home");
+app.get("/home", async (req, res) => {
+	const shop = await MongoDBData.collection2.find();
+	console.log(shop);
+	res.render("home", { title: "Ohhhhh Yeeeeeah!", shop: shop });
 });
 app.get("/shop", (req, res) => {
 	res.render("shop");
 });
 
+app.get("/update/:id", async (req, res) => {
+	let id = req.params.id;
+	const shop = await MongoDBData.collection2.findById(id);
+	if (shop == null) {
+		res.redirect("home");
+	} else {
+		res.render("update_shop", {
+			shop: shop,
+		});
+	}
+});
+
+app.get("/delete/:id", async (req, res) => {
+	let id = req.params.id;
+	const shop = await MongoDBData.collection2.findById(id);
+	if (shop == null) {
+		res.redirect("home");
+	} else {
+		res.render("delete_shop", {
+			shop: shop,
+		});
+	}
+});
 //Starting and checking the server on port 3000
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);

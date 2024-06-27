@@ -1,5 +1,5 @@
 function getShops() {
-	//Invoking Get request and using the response(shops data including name and id) obtained to display it on dashboard page
+	/* //Invoking Get request and using the response(shops data including name and id) obtained to display it on dashboard page
 	$.get("/home/data", (response) => {
 		//Storing the obtained data from get request
 		responseList = response.data;
@@ -11,6 +11,12 @@ function getShops() {
 				"<form action='/home' class='updateForm' method='POST'>" +
 					"<li style='display:flex; width:100%; align-items: center;>" +
 					"<h4 style='padding:10px'>" +
+					"<img" +
+					" src=" +
+					element.image +
+					"/>" +
+					"</h4>" +
+					"<h4 style='padding:10px' id='shopid'>" +
 					element.shopname +
 					"</h4>" +
 					"<h4 style='padding:10px' id='shopid'>" +
@@ -20,13 +26,14 @@ function getShops() {
 					"<Button type='button' style='padding:10px' id='updateShop' style='margine:0;padding:0; height:40px'> Update </Button>" +
 					"<Button type='button' style='padding:10px' id='deleteShop' style='margine:0;padding:0; height:40px'> Delete </Button>" +
 					"</li>" +
-					"</form>"
+					"</form>" +
+					console.log(element.shopname)
 			)
 		);
-	});
+	}); */
 }
 
 //When the app is started in the browser the below js function runs
 $(document).ready(function () {
-	getShops();
+	// getShops();
 });

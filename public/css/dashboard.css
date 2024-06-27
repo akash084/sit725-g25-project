@@ -64,8 +64,6 @@ li {
 li * {
 	margin: 0;
 	padding: 0;
-	padding: 10px !important;
-	margin: 5px !important;
 }
 .nav_bar {
 	background-color: #fdfcdc;
@@ -161,4 +159,17 @@ li * {
 
 .stores .title {
 	text-align: center;
+}
+
+.shopimg {
+	height: 100px;
+	width: 100px;
+	object-fit: cover;
+	/* object-fit: contain; */
+	/* object-fit: fill; */
+}
+
+#updateForm {
+	display: flex;
+	justify-content: space-around;
 }

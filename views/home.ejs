@@ -52,7 +52,7 @@
 		</section>
 
 		<div class="shop-list">
-			<h1>Add shop</h1>
+			<h1>Add shop <%= title %></h1>
 			<form action="/home" id="addForm" method="POST">
 				<input
 					type="text"
@@ -61,14 +61,54 @@
 					class="boder-dg"
 					placeholder="Shopname"
 					required />
+				<input
+					type="text"
+					id="image"
+					name="image"
+					class="boder-dg"
+					placeholder="Image"
+					required />
+
 				<button id="addShop" type="submit">Add</button>
 			</form>
 			<br />
 
 			<div class="shop-list-container">
-				<h1>List of shop</h1>
+				<% if(shop.length > 0){ %>
+				<h1>List of shop <%= shop[0].shopname %> & <%= shop.length %></h1>
+				<% shop.forEach((row, index) => { %>
+				<form action="/home" class="updateForm" method="POST">
+					<li style="display: flex; align-items: center">
+						<h4 style="padding: 10px" class="shopid"><%= index+1 %></h4>
+						<img src="<%= row.image %>" class="shopimg" />
 
-				<div id="shopContainer"></div>
+						<h4 style="padding: 10px" class="shopid"><%= row.shopname %></h4>
+						<h4 style="padding: 10px" class="shopid"><%= row._id %></h4>
+						<input
+							type="hidden"
+							style="display: flex"
+							class="inputid"
+							name="inputid"
+							required />
+						<a
+							href="/update/<%= row._id %>"
+							class="btn-1"
+							class="updateShop"
+							style="height: 40px">
+							Update
+						</a>
+						<a
+							href="/delete/<%= row._id %>"
+							class="btn-1"
+							class="deleteShop"
+							style="height: 40px">
+							Delete
+						</a>
+					</li>
+				</form>
+				<% }); %> <% } else{ %>
+				<h1>Oops!, Currently There are no shops. <%= shop.length %></h1>
+				<% } %>
 			</div>
 		</div>
 		<script

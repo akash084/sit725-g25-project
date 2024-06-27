@@ -37,6 +37,10 @@ const ShopSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	image: {
+		type: String,
+		required: true,
+	},
 });
 
 //Creating the collections(users and shop) for the databases

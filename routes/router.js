@@ -8,12 +8,18 @@ const controller = require("../controllers/controller");
 router.post("/signup", controller.SignUp);
 
 //POST for Login
-router.post("/login", controller.Login);
+router.post("/", controller.Login);
 
 //POST for Shop
 router.post("/home", controller.AddShop);
 
 //GET for Shop
 router.get("/home/data", controller.GetData);
+
+//POST for UpdateShop
+router.post("/update/:id", controller.UpdateShop);
+
+//POST for DeleteShop
+router.post("/delete/:id", controller.DeleteShop);
 
 module.exports = router;

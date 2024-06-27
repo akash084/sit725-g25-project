@@ -1,0 +1,62 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Multi Store Management</title>
+		<link rel="stylesheet" href="/css/dashboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	</head>
+	<body>
+		<header>
+			<div class="container-d">
+				<div class="nav_bar">
+					<div class="logo">
+						<h4>
+							<a href="/home" class="left brand-logo"> Logo</a>
+						</h4>
+					</div>
+					<div class="menu_list">
+						<a href="/home">Home</a>
+						<a href="#">Services</a>
+						<a href="#">At</a>
+						<a href="#">stores</a>
+						<a href="#">User</a>
+
+						<button class="lg_btn">Sign out</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="shop-list-container">
+			<% if(shop){ %>
+			<h1 style="text-decoration: underline; margin: 10px 0">Delete Shop</h1>
+			<form
+				style="margin: 10px; display: flex; flex-direction: column"
+				action="/delete/<%= shop._id %>"
+				id="deleteForm"
+				method="POST">
+				<li style="display: flex; align-items: center">
+					<img src="<%= shop.image %>" class="shopimg" />
+
+					<h4 style="padding: 10px" class="shopid"><%= shop.shopname %></h4>
+					<h4 style="padding: 10px" class="shopid"><%= shop._id %></h4>
+				</li>
+				<button id="addShop" type="submit">Confirm Delete</button>
+			</form>
+			<% } else{ %>
+			<h1>Oops!, Currently There are no shops.</h1>
+			<% } %>
+		</div>
+		<script
+			src="https://kit.fontawesome.com/48bcbf2c30.js"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+		<script src="js/script.js"></script>
+	</body>
+	    
+</html>
